@@ -8,7 +8,8 @@ kafka = "3.4.0"
 spring-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 spring-data-redis = { module = "org.springframework.boot:spring-boot-starter-data-redis" }
 spring-boot-web = { module = "org.springframework.boot:spring-boot-starter-web" }
-spring-kafka = { module = "org.springframework.boot:spring-boot-starter-kafka" }
+spring-kafka = { module = "org.springframework.kafka:spring-kafka" }
+mysql-connector-j = { module = "com.mysql:mysql-connector-j", version = "9.2.0" }
 
 [plugins]
 spring-dependency-management = { id = 'io.spring.dependency-management', version.ref = 'spring-dependency-management' }

@@ -1,3 +1,6 @@
+server:
+  port: 18080
+
 spring:
   kafka:
     bootstrap-servers: localhost:9092
@@ -7,3 +10,9 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  datasource:
+    url: jdbc:mysql://localhost:13306/corebanking
+    username: user
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "toss-bank-infinite-scroll"
 
 include(":core-banking")
+include(":transfer")
