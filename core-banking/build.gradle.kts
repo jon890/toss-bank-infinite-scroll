@@ -7,7 +7,6 @@ allOpen {
     annotation("jakarta.persistence.Entity")
 }
 
-
 dependencies {
     implementation(libs.spring.boot.web)
     implementation(libs.spring.kafka)
