@@ -7,14 +7,18 @@ import java.util.*
 
 @Table
 @Entity
-class AccountChangeHistory(
+class AccountHistory(
     prevBalance: Long,
     currentBalance: Long,
     deltaBalance: Long,
     account: Account
 ) {
     @Id
-    val id: UUID = UUID.randomUUID()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null
+        protected set
+
+    val uuid: String = UUID.randomUUID().toString()
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "account_id")

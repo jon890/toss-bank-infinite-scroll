@@ -12,4 +12,12 @@ class AccountRepositoryImpl @Autowired constructor(private val accountJpaReposit
         val account = Account(accountNumber, username, 0)
         return accountJpaRepository.save(account)
     }
+
+    override fun findByAccountNumber(accountNumber: String): Account? {
+        return accountJpaRepository.findByAccountNumber(accountNumber)
+    }
+
+    override fun findByAccountNumberForUpdate(accountNumber: String): Account? {
+        return accountJpaRepository.findByAccountNumberForUpdate(accountNumber)
+    }
 }

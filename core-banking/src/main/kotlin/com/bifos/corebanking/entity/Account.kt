@@ -1,15 +1,12 @@
 package com.bifos.corebanking.entity
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 
-@Table
+@Table(indexes = [Index(columnList = "account_number")])
 @Entity
 class Account(
     accountNumber: String,
@@ -23,7 +20,8 @@ class Account(
      * 계좌번호
      */
     @Column(unique = true, nullable = false)
-    val accountNumber: String = accountNumber
+    var accountNumber: String = accountNumber
+        protected set
 
     @Column(nullable = false)
     val username: String = username
@@ -38,4 +36,11 @@ class Account(
     @LastModifiedDate
     var updatedAt: LocalDateTime = LocalDateTime.now()
         protected set
+
+    /**
+     * 입금
+     */
+    fun deposit(balance: Long) {
+        this.balance += balance
+    }
 }
