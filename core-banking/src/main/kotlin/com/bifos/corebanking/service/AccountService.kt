@@ -1,7 +1,9 @@
 package com.bifos.corebanking.service
 
 import com.bifos.corebanking.entity.Account
+import com.bifos.corebanking.entity.AccountHistory
 import com.bifos.corebanking.exception.ExceptionInfo
+import com.bifos.corebanking.repository.AccountHistoryRepository
 import com.bifos.corebanking.repository.AccountRepository
 import com.bifos.corebanking.service.dto.CreateAccountCommand
 import com.bifos.corebanking.service.dto.DepositCommand
@@ -12,7 +14,8 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class AccountService(
-    private val accountRepository: AccountRepository
+    private val accountRepository: AccountRepository,
+    private val accountHistoryRepository: AccountHistoryRepository
 ) {
     @Transactional
     fun createAccount(command: CreateAccountCommand): Account {
@@ -25,9 +28,13 @@ class AccountService(
                 ?: throw ExceptionInfo.NOT_FOUND_ACCOUNT.exception()
 
         val prevBalance = account.balance
-        account.deposit(command.balance)
+        val deltaBalance = command.balance
+        account.deposit(deltaBalance)
         val afterBalance = account.balance
 
-        return DepositResult(account.accountNumber, prevBalance, afterBalance, command.balance)
+        val accountHistory = AccountHistory(prevBalance, afterBalance, deltaBalance, account)
+        accountHistoryRepository.createHistory(accountHistory)
+
+        return DepositResult(account.accountNumber, prevBalance, afterBalance, deltaBalance)
     }
 }
