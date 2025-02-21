@@ -12,6 +12,8 @@ spring-boot-web = { module = "org.springframework.boot:spring-boot-starter-web" 
 spring-kafka = { module = "org.springframework.kafka:spring-kafka" }
 mysql-connector-j = { module = "com.mysql:mysql-connector-j", version = "9.2.0" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 
 [plugins]
 spring-dependency-management = { id = 'io.spring.dependency-management', version.ref = 'spring-dependency-management' }
