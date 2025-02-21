@@ -3,5 +3,5 @@ package com.bifos.corebanking.repository
 import com.bifos.corebanking.entity.Account
 
 interface AccountRepository {
-    fun createAccount(username: String): Account
+    fun createAccount(username: String, accountNumber: String): Account
 }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository
 class AccountRepositoryImpl @Autowired constructor(private val accountJpaRepository: AccountJpaRepository) :
     AccountRepository {
 
-    override fun createAccount(username: String): Account {
-        val account = Account(username, 0)
+    override fun createAccount(username: String, accountNumber: String): Account {
+        val account = Account(accountNumber, username, 0)
         return accountJpaRepository.save(account)
     }
 }

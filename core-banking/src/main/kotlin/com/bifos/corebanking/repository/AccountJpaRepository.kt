@@ -4,6 +4,6 @@ import com.bifos.corebanking.entity.Account
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 
-interface AccountJpaRepository : JpaRepository<Account, UUID> {
+interface AccountJpaRepository : JpaRepository<Account, String> {
 
 }

@@ -12,18 +12,21 @@ import java.util.UUID
 @Table
 @Entity
 class Account(
+    accountNumber: String,
     username: String,
     balance: Long
 ) {
     @Id
-    val id: UUID = UUID.randomUUID()
+    val id: String = UUID.randomUUID().toString()
 
     /**
-     * 해당 값으로 통장을 구분하기 위해 사용
-     * TODO 한 유저가 같은 은행의 여러 통장을 사용할 수 있지 않나..?
+     * 계좌번호
      */
     @Column(unique = true, nullable = false)
-    var username: String = username
+    val accountNumber: String = accountNumber
+
+    @Column(nullable = false)
+    val username: String = username
 
     @Column
     var balance: Long = balance
