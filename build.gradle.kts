@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.spring.boot)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.spring)
+    alias(libs.plugins.kotlin.jpa)
 }
 
 allprojects {
@@ -20,17 +21,21 @@ allprojects {
 // todo 위와 같이 안할 방법은 없나..?
 val kotlinJvmPluginId = libs.plugins.kotlin.jvm.get().pluginId
 val kotlinSpringPluginId = libs.plugins.kotlin.spring.get().pluginId
+val kotlinJpaPluginId = libs.plugins.kotlin.jpa.get().pluginId
 val springDependencyManagementPluginId = libs.plugins.spring.dependency.management.get().pluginId
 val springBootPluginId = libs.plugins.spring.boot.get().pluginId
+
+val kotlinReflectLib = libs.kotlin.reflect.get()
 
 subprojects {
     apply(plugin = kotlinJvmPluginId)
     apply(plugin = kotlinSpringPluginId)
+    apply(plugin = kotlinJpaPluginId)
     apply(plugin = springDependencyManagementPluginId)
     apply(plugin = springBootPluginId)
 
     dependencies {
-        //
+        implementation(kotlinReflectLib)
     }
 
     tasks {

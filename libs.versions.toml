@@ -10,10 +10,11 @@ spring-data-redis = { module = "org.springframework.boot:spring-boot-starter-dat
 spring-boot-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 spring-kafka = { module = "org.springframework.kafka:spring-kafka" }
 mysql-connector-j = { module = "com.mysql:mysql-connector-j", version = "9.2.0" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 
 [plugins]
 spring-dependency-management = { id = 'io.spring.dependency-management', version.ref = 'spring-dependency-management' }
 spring-boot = { id = 'org.springframework.boot', version.ref = 'spring-boot' }
-kotlin = { id = "org.jetbrains.kotlin", version.ref = 'kotlin'}
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = 'kotlin'}
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = 'kotlin'}
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = 'kotlin'}
