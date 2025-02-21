@@ -3,6 +3,12 @@ plugins {
     libs.plugins.kotlin.jpa.get().pluginId
 }
 
+flyway {
+    url = "jdbc:mysql://localhost:13306/corebanking"
+    user = "user"
+    password = "password"
+}
+
 allOpen {
     annotation("jakarta.persistence.Entity")
 }

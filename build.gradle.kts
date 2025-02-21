@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.spring)
     alias(libs.plugins.kotlin.jpa)
+    alias(libs.plugins.flyway)
 }
 
 allprojects {
@@ -24,6 +25,7 @@ val kotlinSpringPluginId = libs.plugins.kotlin.spring.get().pluginId
 val kotlinJpaPluginId = libs.plugins.kotlin.jpa.get().pluginId
 val springDependencyManagementPluginId = libs.plugins.spring.dependency.management.get().pluginId
 val springBootPluginId = libs.plugins.spring.boot.get().pluginId
+val flywayPluginId = libs.plugins.flyway.get().pluginId
 
 val kotlinReflectLib = libs.kotlin.reflect.get()
 
@@ -33,6 +35,7 @@ subprojects {
     apply(plugin = kotlinJpaPluginId)
     apply(plugin = springDependencyManagementPluginId)
     apply(plugin = springBootPluginId)
+    apply(plugin = flywayPluginId)
 
     dependencies {
         implementation(kotlinReflectLib)
