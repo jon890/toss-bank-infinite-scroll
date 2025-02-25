@@ -12,4 +12,6 @@ dependencies {
     implementation(libs.spring.kafka)
     implementation(libs.spring.data.jpa)
     implementation(libs.mysql.connector.j)
+    implementation(libs.flyway.mysql)
+    implementation(libs.flyway.core)
 }

@@ -33,3 +33,6 @@ spring:
     baseline-on-migrate: true
     user: user
     password: password
+
+  application:
+    name: CoreBankingApplication

@@ -1,9 +1,6 @@
 package com.bifos.transfer.entity
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
 import java.util.*
@@ -11,35 +8,31 @@ import java.util.*
 @Table
 @Entity
 class AccountHistory(
+    accountNumber: String,
     prevBalance: Long,
     currentBalance: Long,
     deltaBalance: Long,
-    accountNumber: String,
-    accountId: String
 ) {
     @Id
-    val id: String = UUID.randomUUID().toString()
-
-    @Column(nullable = false)
-    var accountId: String = accountId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null
         protected set
 
-    /**
-     * 계좌 번호
-     */
-    @Column(nullable = false)
+    val uuid: String = UUID.randomUUID().toString()
+
+    @Column
     var accountNumber: String = accountNumber
         protected set
 
-    @Column(nullable = false)
+    @Column
     var prevBalance: Long = prevBalance
         protected set
 
-    @Column(nullable = false)
+    @Column
     var currentBalance: Long = currentBalance
         protected set
 
-    @Column(nullable = false)
+    @Column
     var deltaBalance: Long = deltaBalance
         protected set
 

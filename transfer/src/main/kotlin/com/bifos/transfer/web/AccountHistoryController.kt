@@ -2,9 +2,9 @@ package com.bifos.transfer.web
 
 import com.bifos.transfer.service.AccountHistoryService
 import com.bifos.transfer.service.dto.FindAccountHistoryCommand
+import com.bifos.transfer.web.dto.FindAccountHistoryRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -16,8 +16,14 @@ class AccountHistoryController(private val accountHistoryService: AccountHistory
      * 계좌번호로 이체내역을 조회한다.
      */
     @GetMapping("/account-number")
-    fun getHistoryByAccountNumber(@RequestBody findAccountHistoryCommand: FindAccountHistoryCommand): ResponseEntity<*> {
-        val histories = accountHistoryService.getHistories(findAccountHistoryCommand)
+    fun getHistoryByAccountNumber(findAccountHistoryRequest: FindAccountHistoryRequest): ResponseEntity<*> {
+        val histories = accountHistoryService.getHistories(
+            FindAccountHistoryCommand(
+                accountNumber = findAccountHistoryRequest.accountNumber,
+                baseTime = findAccountHistoryRequest.baseTime,
+                count = findAccountHistoryRequest.count
+            )
+        )
         return ResponseEntity.ok(histories)
     }
 }
