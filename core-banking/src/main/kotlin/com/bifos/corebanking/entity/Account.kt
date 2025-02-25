@@ -1,5 +1,6 @@
 package com.bifos.corebanking.entity
 
+import com.bifos.corebanking.exception.ExceptionInfo
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
@@ -42,5 +43,12 @@ class Account(
      */
     fun deposit(balance: Long) {
         this.balance += balance
+    }
+
+    fun withdraw(balance: Long) {
+        if (this.balance < balance) {
+            throw ExceptionInfo.NOT_ENOUGH_BALANCE.exception()
+        }
+        this.balance -= balance
     }
 }

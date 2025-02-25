@@ -8,10 +8,10 @@ import java.util.*
 @Table
 @Entity
 class AccountHistory(
+    accountNumber: String,
     prevBalance: Long,
     currentBalance: Long,
     deltaBalance: Long,
-    account: Account
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,8 @@ class AccountHistory(
 
     val uuid: String = UUID.randomUUID().toString()
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "account_id")
-    var account: Account = account
+    @Column
+    var accountNumber: String = accountNumber
         protected set
 
     @Column

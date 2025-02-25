@@ -1,12 +1,11 @@
 package com.bifos.corebanking.service.dto
 
-import java.time.LocalDateTime
+import com.bifos.corebanking.entity.Account
 
-data class AccountHistoryProduceCommand(
+data class CreateAccountHistoryCommand(
     val accountNumber: String,
     val prevBalance: Long,
     val currentBalance: Long,
-    val deltaBalance: Long,
-    val createdAt: LocalDateTime
+    val deltaBalance: Long
 ) {
 }
