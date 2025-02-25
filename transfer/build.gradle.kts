@@ -9,9 +9,15 @@ allOpen {
 
 dependencies {
     implementation(libs.spring.boot.web)
+
     implementation(libs.spring.kafka)
+
     implementation(libs.spring.data.jpa)
     implementation(libs.mysql.connector.j)
+
     implementation(libs.flyway.mysql)
     implementation(libs.flyway.core)
+
+    implementation(platform(libs.spring.cloud))
+    implementation(libs.spring.cloud.openfeign)
 }

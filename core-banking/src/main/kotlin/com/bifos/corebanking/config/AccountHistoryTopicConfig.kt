@@ -1,6 +1,6 @@
 package com.bifos.corebanking.config
 
-import com.bifos.constant.TopicNames
+import com.bifos.corebanking.constant.TopicNames
 import org.apache.kafka.clients.admin.NewTopic
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

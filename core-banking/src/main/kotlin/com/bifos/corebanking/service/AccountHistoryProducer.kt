@@ -1,6 +1,6 @@
 package com.bifos.corebanking.service
 
-import com.bifos.constant.TopicNames
+import com.bifos.corebanking.constant.TopicNames
 import com.bifos.corebanking.service.dto.AccountHistoryProduceCommand
 import com.bifos.corebanking.service.dto.CreateAccountHistoryCommand
 import com.fasterxml.jackson.databind.ObjectMapper

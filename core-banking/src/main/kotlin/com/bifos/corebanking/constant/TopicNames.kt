@@ -1,4 +1,4 @@
-package com.bifos.constant
+package com.bifos.corebanking.constant
 
 object TopicNames {
 
