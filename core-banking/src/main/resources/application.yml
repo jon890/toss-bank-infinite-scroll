@@ -10,6 +10,8 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # spring transaction 이후 message commit
+      transaction-id-prefix: tx-
 
   datasource:
     url: jdbc:mysql://localhost:13306/corebanking

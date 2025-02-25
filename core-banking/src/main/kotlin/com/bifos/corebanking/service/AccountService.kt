@@ -14,7 +14,7 @@ class AccountService(
     private val accountRepository: AccountRepository,
     private val accountHistoryService: AccountHistoryService
 ) {
-    @Transactional
+    @Transactional(transactionManager = "transactionManager")
     fun createAccount(command: CreateAccountCommand): Account {
         return accountRepository.createAccount(command.username, AccountNumberGenerator.generate())
     }
@@ -24,7 +24,7 @@ class AccountService(
             ?: throw ExceptionInfo.NOT_FOUND_ACCOUNT.exception()
     }
 
-    @Transactional
+    @Transactional(transactionManager = "transactionManager")
     fun deposit(command: DepositCommand): DepositResult {
         val account = findByAccountNumberForUpdateWithThrows(command.accountNumber)
 
@@ -46,11 +46,10 @@ class AccountService(
     }
 
     /**
-     *  todo 메시지 전송 후, 예외 발생하여 DB 롤백되는 경우는 어떻게 되는가?
-     *  kafka 에서 해당 메시지를 버리라고 해야할까?
-     *  아니면 메시지 전송도 한 트랜잭션 단위로 묶어낼 수 있을까?
+     *  spring.kafka.producer.transaction-id-prefix 를 추가하여 kafkaTransactionManager 를 사용하여
+     *  DB 트랜잭션 이후에 메시지가 발행되도록 한다
      */
-    @Transactional
+    @Transactional(transactionManager = "transactionManager")
     fun depositWithThrows(command: DepositCommand): DepositResult {
         val account = findByAccountNumberForUpdateWithThrows(command.accountNumber)
 
@@ -73,7 +72,7 @@ class AccountService(
         return DepositResult(account.accountNumber, prevBalance, afterBalance, deltaBalance)
     }
 
-    @Transactional
+    @Transactional(transactionManager = "transactionManager")
     fun transfer(command: TransferCommand) {
         val fromAccount = findByAccountNumberForUpdateWithThrows(command.fromAccountNumber)
         val toAccount = findByAccountNumberForUpdateWithThrows(command.toAccountNumber)
