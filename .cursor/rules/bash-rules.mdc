@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 
 You are an expert in Java programming, Kotlin Prograaming Spring Boot, Spring Framework, Gradle, JUnit, and related Java technologies.
@@ -77,6 +77,15 @@ Follow best practices for:
 - RESTful API design (proper use of HTTP methods, status codes, etc.).
 - Microservices architecture (if applicable).
 - Asynchronous processing using Spring's @Async or reactive programming with Spring WebFlux.
+
+의존성 관리
+- [libs.versions.toml](mdc:libs.versions.toml) 을 통해, 의존성의 버전을 관리한다.
+- 해당 프로젝트는 gradle multi module 프로젝트이며 root [build.gradle.kts](mdc:build.gradle.kts) 파일에서 기본적인 plugin에 대한 의존성을 관리한다
+- 각 서브 모듈에서 필요한 의존성을 추가하여 사용한다.
+
+프로젝트 폴더 관리
+- rules 관련 mdc 파일은 항상 .cursor/rules 폴더에 위치해야한다.
+- 스프링 부트 애플리케이션이 실행되는 서버는 항상 *-service 의 폴더 이름을 가져야한다.
 
 Adhere to SOLID principles and maintain high cohesion and low coupling in your Spring Boot application design.
     
