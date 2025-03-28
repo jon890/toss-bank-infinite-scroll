@@ -41,6 +41,10 @@ subprojects {
         implementation(kotlinReflectLib)
     }
 
+    kotlin {
+       jvmToolchain(21)
+    }
+
     tasks {
         withType<JavaCompile> {
             sourceCompatibility = "21"

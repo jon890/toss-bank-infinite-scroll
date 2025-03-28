@@ -1,0 +1,28 @@
+---
+description: Discovery Server 설정에 대한 가이드입니다. Eureka Server를 사용한 서비스 디스커버리 구성 방법을 설명합니다.
+globs: discovery-server/**
+alwaysApply: false
+---
+
+# Discovery Server
+
+## 개요
+- 서비스 디스커버리를 위한 Eureka Server
+- 포트: 8111
+- Spring WebFlux 기반 비동기 통신
+
+## 프로젝트 구조
+```
+discovery-server/
+├── build.gradle.kts        # 모듈 빌드 설정
+└── src/main/
+    ├── kotlin/
+    │   └── com/bifos/discovery/
+    │       └── DiscoveryServerApplication.kt
+    └── resources/
+        └── application.yml
+```
+
+## 핵심 의존성
+- spring-boot-starter-webflux
+- spring-cloud-starter-netflix-eureka-server 

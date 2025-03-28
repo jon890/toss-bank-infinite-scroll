@@ -1,0 +1,13 @@
+---
+description: 
+globs: transfer/**
+alwaysApply: false
+---
+# 송금 서버 개발시에 적용되는 룰의 모음이다
+
+- 기본적으로 Kotlin 언어를 사용하여 개발하며, Spring Boot 3.4 버전대를 사용하여 개발한다.
+- 타겟 JVM은 21이다.
+
+## 송금 관련 기능에 대한 개발은 아래와 같이 해야한다.
+
+- 유저로부터 송금 요청이 오면, spring cloud openfeign을 통해, 코어뱅킹 서버에 송금 요청을 해야한다.

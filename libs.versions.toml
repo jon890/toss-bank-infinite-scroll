@@ -8,9 +8,11 @@ flyway = "11.3.3"
 [libraries]
 spring-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 spring-boot-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
 spring-kafka = { module = "org.springframework.kafka:spring-kafka" }
 spring-cloud = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
 spring-cloud-openfeign = { module = "org.springframework.cloud:spring-cloud-starter-openfeign" }
+spring-cloud-eureka-server = { module = "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server" }
 mysql-connector-j = { module = "com.mysql:mysql-connector-j", version = "9.2.0" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }

@@ -36,3 +36,24 @@ spring:
 
   application:
     name: TransferApplication
+
+core-banking:
+  ribbon:
+    listOfServers: http://localhost:18080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+feign:
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
