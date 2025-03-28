@@ -1,5 +1,5 @@
 server:
-  port: 8111
+  port: 18111
 
 spring:
   application:
@@ -11,4 +11,11 @@ eureka:
     fetch-registry: false
   server:
     wait-time-in-ms-when-sync-empty: 0
-    enable-self-preservation: false
+    enable-self-preservation: true
+    # 33%만 디스커버리 서버가 클라이언트의 하트비트를 받아도 인스턴스를 제거하지 않는다
+    renewal-percent-threshold: 0.33
+
+logging:
+  level:
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN

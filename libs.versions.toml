@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.1.10"
 spring-boot = "3.4.2"
-spring-cloud = "2024.0.0"
+spring-cloud = "2024.0.1"
 spring-dependency-management = "1.1.7"
 flyway = "11.3.3"
 
@@ -13,11 +13,12 @@ spring-kafka = { module = "org.springframework.kafka:spring-kafka" }
 spring-cloud = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
 spring-cloud-openfeign = { module = "org.springframework.cloud:spring-cloud-starter-openfeign" }
 spring-cloud-eureka-server = { module = "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server" }
+spring-cloud-eureka-client = { module = "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client" }
+spring-cloud-resilience4j = { module = "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j" }
 mysql-connector-j = { module = "com.mysql:mysql-connector-j", version = "9.2.0" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
 flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
-
 
 [plugins]
 spring-dependency-management = { id = 'io.spring.dependency-management', version.ref = 'spring-dependency-management' }

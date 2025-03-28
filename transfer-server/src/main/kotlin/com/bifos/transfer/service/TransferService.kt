@@ -114,7 +114,7 @@ class TransferService(
      * 주기적으로 미완료된 송금 요청들의 상태를 확인하는 스케줄러
      * 5초마다 실행
      */
-    @Scheduled(fixedDelay = 5000)
+//    @Scheduled(fixedDelay = 5000)
     @Transactional
     fun checkPendingTransfers() {
         val timeoutThreshold = LocalDateTime.now().minusMinutes(TRANSFER_TIMEOUT_MINUTES)

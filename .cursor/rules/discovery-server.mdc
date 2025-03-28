@@ -1,6 +1,6 @@
 ---
-description: Discovery Server 설정에 대한 가이드입니다. Eureka Server를 사용한 서비스 디스커버리 구성 방법을 설명합니다.
-globs: discovery-server/**
+description: 디스커버리
+globs: 
 alwaysApply: false
 ---
 

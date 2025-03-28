@@ -2,6 +2,9 @@ server:
   port: 18080
 
 spring:
+  application:
+    name: core-banking-server
+
   kafka:
     bootstrap-servers: localhost:19094
     consumer:
@@ -34,5 +37,9 @@ spring:
     user: user
     password: password
 
-  application:
-    name: CoreBankingApplication
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:18111/eureka/
+  instance:
+    prefer-ip-address: true

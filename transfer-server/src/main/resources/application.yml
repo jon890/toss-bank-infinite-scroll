@@ -2,6 +2,9 @@ server:
   port: 18081
 
 spring:
+  application:
+    name: transfer-server
+
   kafka:
     bootstrap-servers: localhost:19094
     consumer:
@@ -34,9 +37,6 @@ spring:
     user: user
     password: password
 
-  application:
-    name: TransferApplication
-
 core-banking:
   ribbon:
     listOfServers: http://localhost:18080
@@ -44,7 +44,7 @@ core-banking:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:18111/eureka/
   instance:
     prefer-ip-address: true
 
