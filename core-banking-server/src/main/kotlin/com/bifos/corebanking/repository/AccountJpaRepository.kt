@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Lock
 import org.springframework.data.jpa.repository.Query
 
-interface AccountJpaRepository : JpaRepository<Account, String> {
+interface AccountJpaRepository : JpaRepository<Account, Long> {
 
     fun findByAccountNumber(accountNumber: String): Account?
 

@@ -15,7 +15,9 @@ class Account(
     balance: Long
 ) {
     @Id
-    val id: String = UUID.randomUUID().toString()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long = 0
+        protected set
 
     /**
      * 계좌번호

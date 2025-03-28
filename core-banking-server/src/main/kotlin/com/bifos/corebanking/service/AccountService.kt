@@ -35,6 +35,7 @@ class AccountService(
 
         accountHistoryService.createAccountHistory(
             CreateAccountHistoryCommand(
+                account = account,
                 accountNumber = account.accountNumber,
                 prevBalance = prevBalance,
                 deltaBalance = deltaBalance,
@@ -60,6 +61,7 @@ class AccountService(
 
         accountHistoryService.createAccountHistory(
             CreateAccountHistoryCommand(
+                account = account,
                 accountNumber = account.accountNumber,
                 prevBalance = prevBalance,
                 deltaBalance = deltaBalance,
@@ -87,6 +89,7 @@ class AccountService(
         // from history
         accountHistoryService.createAccountHistory(
             CreateAccountHistoryCommand(
+                account = fromAccount,
                 accountNumber = fromAccount.accountNumber,
                 prevBalance = fromPrevBalance,
                 deltaBalance = deltaBalance * -1,
@@ -102,6 +105,7 @@ class AccountService(
         // to history
         accountHistoryService.createAccountHistory(
             CreateAccountHistoryCommand(
+                account = toAccount,
                 accountNumber = toAccount.accountNumber,
                 prevBalance = toPrevBalance,
                 deltaBalance = deltaBalance,

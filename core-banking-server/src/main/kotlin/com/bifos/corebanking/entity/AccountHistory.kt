@@ -3,12 +3,11 @@ package com.bifos.corebanking.entity
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
-import java.util.*
 
 @Table
 @Entity
 class AccountHistory(
-    accountNumber: String,
+    account: Account,
     prevBalance: Long,
     currentBalance: Long,
     deltaBalance: Long,
@@ -18,10 +17,13 @@ class AccountHistory(
     var id: Long? = null
         protected set
 
-    val uuid: String = UUID.randomUUID().toString()
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id", nullable = false)
+    var account: Account = account
+        protected set
 
     @Column
-    var accountNumber: String = accountNumber
+    var accountNumber: String = account.accountNumber
         protected set
 
     @Column

@@ -14,7 +14,7 @@ class AccountHistoryService(
 
     fun createAccountHistory(command: CreateAccountHistoryCommand) {
         val accountHistory = AccountHistory(
-            command.accountNumber,
+            command.account,
             command.prevBalance,
             command.currentBalance,
             command.deltaBalance
